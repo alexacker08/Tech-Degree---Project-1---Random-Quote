@@ -1,6 +1,38 @@
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", function(){
+	printQuote();
+	//CLEAR OUT THE SET INTERVAL
+	stopInterval();
+	waitAndSee();
 
-setInterval(printQuote, 5000);
+}, false);
+
+//RUN PRINT QUOTE IF NO CLICK OCCURS
+
+var intervalSet;
+
+//FUNCTION TO START THE INTERVAL
+function startInterval(){
+
+	intervalSet = window.setInterval(function(){
+		printQuote();
+	}, 10000);
+};
+
+//FUNCTION TO STOP THE INTERVAL
+function stopInterval(){
+	clearTimeout(intervalSet);
+
+}
+
+//TIME FUNCTION TO SEE IF A USER WILL STOP PRESSING THE BUTTON BEFORE MOVING ON
+function waitAndSee(){
+	window.setTimeout(function(){
+		startInterval();
+	}, 5000);
+};
+
+//BEGIN THE FIRST INTERVAL
+startInterval();
 
 var quotes = [];
 var colors = ["#262b53","#6d5a7f","#ae7182","#ffb985","#262533","#63352b","#9c6638"];
@@ -16,7 +48,7 @@ var markTwain = {
 };
 
 var muhammadAly = {
-	'quote' : "I hate every minute of training, but I said, 'Don't quite. Suffer now and live the rest of your life as a champion.",
+	'quote' : "I hate every minute of training, but I said, 'Don't quit. Suffer now and live the rest of your life as a champion.",
 	'source' : 'Muhammad Ali',
 	'tags' : 'motivation'
 };
