@@ -16,7 +16,7 @@ function startInterval(){
 	intervalSet = window.setInterval(function(){
 		printQuote();
 	}, 10000);
-};
+}
 
 //FUNCTION TO STOP THE INTERVAL
 function stopInterval(){
@@ -29,7 +29,7 @@ function waitAndSee(){
 	window.setTimeout(function(){
 		startInterval();
 	}, 5000);
-};
+}
 
 //BEGIN THE FIRST INTERVAL
 startInterval();
